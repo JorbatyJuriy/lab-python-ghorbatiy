@@ -1,1 +1,1 @@
-def run(): print('Running core logic smoothly')
+print("Log message 1")
