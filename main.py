@@ -1,1 +1,1 @@
-print("Log message 1")
+print("Log message 1 and 2")
