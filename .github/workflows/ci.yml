@@ -1,0 +1,15 @@
+name: CI Pipeline
+on: [pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: pip install pytest flake8 bandit
+      - name: Run Linter
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+      - name: Run Security Scan
+        run: bandit -r . --skip B101
+      - name: Run Unit Test
+        run: pytest test_validator.py
